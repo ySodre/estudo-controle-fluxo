@@ -3,8 +3,10 @@ on:
   push:
     branches: ["main", "feature/*"]
 jobs:
-  teste:
+  apenas-main:
+    if: ${{ github.ref == 'refs/heads/main'}}
+    name: Esse job só executa na branch main
     runs-on: ubuntu-latest
     steps:
-      - name: Action de teste
-        run: echo "Action executada apenas em main e features"
+      - name: Executando na main
+        run: echo "Executando comando na main"
